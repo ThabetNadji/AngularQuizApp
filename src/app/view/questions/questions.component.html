@@ -1,0 +1,73 @@
+<br>
+<div class="container">
+    <div class="row">
+      <div >
+        <B>Progress</B>
+        <div class="progress">
+          <div class="progress-bar bg-success" [ngStyle]="{'width': progressBarValue + '%'}" role="progressbar" 
+            aria-valuemin="0" aria-valuemax="100">{{questionNumber}}/10</div>
+        </div>
+        <br>
+        <form [formGroup]="questionForm">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"><b>Question Number {{questionNumber}}</b></label>
+            <textarea class="form-control" rows="3" formControlName="questionText" required></textarea>
+          </div><br>
+          <div class="form-group">
+            <label for="formGroupExampleInput"><b>Answer1</b></label>
+            <input type="text" class="form-control"  formControlName="rep1" required>
+          </div><br>
+          <div class="form-group">
+            <label for="formGroupExampleInput"><b>Answer2</b></label>
+            <input type="text" class="form-control"  formControlName="rep2" required>
+          </div><br>
+          <div class="form-group">
+            <label for="formGroupExampleInput"><b>Answer3</b></label>
+            <input type="text" class="form-control"  formControlName="rep3" required>
+          </div><br>
+          <div class="form-group">
+            <label for="formGroupExampleInput"><b>Answer4</b></label>
+            <input type="text" class="form-control" formControlName="rep4" required>
+          </div><br>
+          <b>select the correct answer number </b>
+          <select class="form-select" aria-label="Default select example" formControlName="correctRepNum" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select><br>
+          <!-- next -->
+          <div *ngIf="!validateVar"> 
+            <button type="button" (click)="getQuestionFormValue()" class="btn btn-success" [disabled]="questionForm.invalid">Next</button>
+          </div>
+
+          <!-- validate -->
+          <div *ngIf="validateVar">
+            <button type="button" (click)="getQuestionFormValue()" (click)="open(myModal)" routerLink="/index" class="btn btn-success">validate</button>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
+    <ng-template #myModal let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Result</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <!-- error cas-->
+
+      <!-- success cas-->
+      <div  class="alert alert-success" role="alert">
+        <h5> Congratulation exam successfully added  </h5>
+      </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+      </div>
+    </ng-template>
+  </div>

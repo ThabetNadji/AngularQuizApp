@@ -1,0 +1,74 @@
+<br><br>
+<h3>User Informations</h3>
+<form [formGroup]="registerForm">
+    <div class="form-group">
+        <label for="formGroupExampleInput"><b>First Name</b></label>
+        <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" required
+            [class.is-invalid]="firstName.invalid && firstName.touched">
+    </div>
+    <!-- message errors-->
+    <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+        <div *ngIf="firstName.errors?.required " class="text-danger"> <small>field is required</small></div>
+        <div *ngIf="firstName.errors?.minlength " class="text-danger"> <small>min length is 3</small></div>
+        <div *ngIf="firstName.errors?.maxlength " class="text-danger"> <small>max length is 15</small></div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="formGroupExampleInput"><b>Last Name</b></label>
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" required
+            [class.is-invalid]="lastName.invalid && lastName.touched">
+    </div>
+    <!-- message errors-->
+    <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+        <div *ngIf="lastName.errors?.required " class="text-danger"> <small>field is required</small></div>
+        <div *ngIf="lastName.errors?.minlength " class="text-danger"> <small>min length is 3</small></div>
+        <div *ngIf="lastName.errors?.maxlength " class="text-danger"> <small>max length is 15</small></div>
+    </div>
+    <br>
+
+    <p><b>The module that you are teaching </b></p>
+    <select class="form-select form-select-lg mb-6" aria-label=".form-select-lg example" formControlName="module"
+    [class.is-invalid]="module.invalid && module.touched" required>
+        <option selected disabled>choose a module</option>
+        <option value="arab">Arab</option>
+        <option value="eng">English</option>
+        <option value="fr">French</option>
+        <option value="geo_hes">hesto_Geo</option>
+        <option value="info">CS</option>
+        <option value="islam">Islamic</option>
+        <option value="madania">Madania</option>
+        <option value="math">Math</option>
+        <option value="phy">Physic</option>
+        <option value="science">Science</option>
+    </select>
+    <!-- message errors-->
+    <div *ngIf="module.invalid && module.touched" class="text-danger">
+        <div *ngIf="module.errors?.required " class="text-danger"> <small>field is required</small></div>
+        <div *ngIf="module.errors?.minlength " class="text-danger"> <small>min length is 3</small></div>
+        <div *ngIf="module.errors?.maxlength " class="text-danger"> <small>max length is 15</small></div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="formGroupExampleInput"><b>Password</b></label>
+        <input type="password" class="form-control" placeholder="password" formControlName="userPassword" required
+            [class.is-invalid]="userPassword.invalid && userPassword.touched">
+    </div>
+    <!-- message errors-->
+    <div *ngIf="userPassword.invalid && userPassword.touched" class="text-danger">
+        <div *ngIf="userPassword.errors?.required " class="text-danger"> <small>field is required</small></div>
+        <div *ngIf="userPassword.errors?.minlength " class="text-danger"> <small>min length is 8</small></div>
+        <div *ngIf="userPassword.errors?.maxlength " class="text-danger"> <small>max length is 15</small></div>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="formGroupExampleInput"><b>Password Confirmation</b></label>
+        <input type="password" class="form-control" placeholder="password confirmation"
+            formControlName="userPasswordConf">
+    </div><br>
+
+    <div>
+        <button type="button" [disabled]="registerForm.invalid" (click)="addNewTeacher()"
+            class="btn btn-success">Continue</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<div class="container">
+  
+   <div class="row">
+   
+     <app-nav-bar></app-nav-bar>
+   </div>
+ 
+   <div class="row" >
+    
+     <div class="col-1">
+      <app-left-bar></app-left-bar>
+      
+     </div>
+ 
+     <div  class="col-10" >
+      <div class="row">
+      <router-outlet></router-outlet>
+      </div>
+      <div class="row">
+        <div>
+          <br><br>
+          
+        </div>
+        <div>
+          <hr>
+          <div class="container">
+            <footer class="py-3 my-4">
+              <p class="text-center text-muted">© 2021 ExamensDZ Company Inc, All rights reserved.</p>
+            </footer>
+          </div>
+        </div>
+      </div>
+     </div>
+ 
+     <div class="col-1" >
+      <app-right-bar></app-right-bar>
+     </div>
+ 
+   </div>
+ 
+ </div>

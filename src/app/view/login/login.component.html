@@ -1,0 +1,40 @@
+<br><br>
+<h3 style="display: flex; justify-content:center; align-items:center;">Welcome, Login To Your Account </h3>
+<br>
+<div style="display: flex; justify-content:center; align-items:center;">
+
+    <form [formGroup]="loginForm">
+        <hr>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input type="text" class="form-control form-control-sm" placeholder="Phone Number"
+                formControlName="phoneNumber" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" required>
+        </div>
+
+        <!-- message errors-->
+        <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="text-danger">
+            <div *ngIf="phoneNumber.errors?.required " class="text-danger"> <small>field is required</small></div>
+            <div *ngIf="phoneNumber.errors?.minlength " class="text-danger"> <small>min length is 13</small></div>
+            <div *ngIf="phoneNumber.errors?.maxlength " class="text-danger"> <small>max length is 13</small></div>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input type="password" class="form-control form-control-sm" placeholder="password"
+                formControlName="userPassword" required>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <button type="button" (click)="login()" class="btn btn-success btn-block" [disabled]="loginForm.invalid">Login</button>
+            </div>
+        </div>
+        <hr><br>
+        <p><b> <small>Don't have an account ?</small></b><a style="color:rgb(240, 165, 53)" routerLink="/newAccount">
+                Create a new one </a></p>
+    </form>
+</div><br><br><br>

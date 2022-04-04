@@ -1,0 +1,65 @@
+<!-- validate -->
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <h2 style="color:rgb(4, 105, 48)"> Welcome {{firstName}} {{lastName}}</h2>
+            <p style="color:rgb(240, 165, 53)"><small>you can add new Exams, each one contain 10 questions, let's go
+                </small></p><br>
+        </div>
+
+        <div class="col-3">
+            <div>
+                <i class="fa-solid fa-folder-user"></i>
+                <button type="button" (click)="open(myModal)" class="link"><i class="fa fa-user"> Account</i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="moduleTrimForm">
+    <p><b>select module</b></p>
+
+    <select class="form-select form-select-lg mb-6" aria-label=".form-select-lg example" formControlName="module"
+        required>
+        <option selected disabled>choose a module</option>
+        <option value="arab">Arab</option>
+        <option value="eng">English</option>
+        <option value="fr">French</option>
+        <option value="geo_hes">hesto_Geo</option>
+        <option value="info">CS</option>
+        <option value="islam">Islamic</option>
+        <option value="madania">Madania</option>
+        <option value="math">Math</option>
+        <option value="phy">Physic</option>
+        <option value="science">Science</option>
+    </select>
+
+    <br>
+    <p><b>select trimester</b></p>
+    <select class="form-select form-select-lg mb-6" aria-label=".form-select-lg example" formControlName="trimester">
+        <option selected disabled>choose a trimester</option>
+        <option value="first_trim">Trimester One</option>
+        <option value="second_trim">Trimester Two</option>
+        <option value="third_trim">Trimester Three</option>
+    </select>
+    <br><br>
+    <div style="display: flex; justify-content:center; align-items:center;">
+        <button type="button" (click)="getModuleAndTrimester()" [disabled]="moduleTrimForm.invalid"
+            routerLink="/Questions" class="btn btn-success btn-lg btn-block"> Next </button>
+    </div>
+</form>
+
+<ng-template #myModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Options</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <a routerLink="/index" (click)="modal.close('Save click')">Setting </a> (this option will coming soon)
+        <br><br>
+        <a routerLink="/login" (click)="logOut()" (click)="modal.close('Save click')">logOut</a>
+    </div>
+</ng-template>
