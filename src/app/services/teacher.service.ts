@@ -13,7 +13,7 @@ export class TeacherService {
   private UrlPost = '';
   constructor(private httpClient: HttpClient) {}
   _response: string = ' _ ';
-  publicUrl:string ='https://heroku-quizapi.herokuapp.com/';
+  publicUrl:string ='https://springquizappapi-production.up.railway.app/';
   //publicUrl :string ='http://localhost:8080/';
   
   // API
