@@ -13,11 +13,16 @@ export class TeacherService {
   private UrlPost = '';
   constructor(private httpClient: HttpClient) {}
   _response: string = ' _ ';
-  publicUrl:string ='https://heroku-quizapi.herokuapp.com/';
+  publicUrl:string ='https://springquizappapi-production.up.railway.app/';
+  publicUrl2:string ='https://quizgamedz-production.up.railway.app/';
+  //String railwaylURL_2 = 'https://quizgamedz-production.up.railway.app/';
   //publicUrl :string ='http://localhost:8080/';
+
+  
   
   // API
   addNewTeacher(_teacher: teacher): void {
+    
     this.UrlPost = this.publicUrl+'addNewTeacher/';
     try {
       console.log('sending request to ... ' + this.UrlPost);
@@ -60,7 +65,7 @@ export class TeacherService {
         { responseType: 'json' }
       );
     } catch (Exception) {
-      console.log(Exception.message);
+      //console.log(Exception.message);
       return false;
     }
   }

@@ -10,8 +10,9 @@ export class QuestionServicesService {
   module:string=">";
   trimester:string=">";
   questionList : Array<question>=[];
-  publicUrl:string ='https://heroku-quizapi.herokuapp.com/';
-  //publicUrl:string ='http://localhost:8080/'; //https://heroku-quizapi.herokuapp.com/
+  //publicUrl:string ='https://springquizappapi-production.up.railway.app/';
+  //publicUrl:string ='https://quizgamedz-production.up.railway.app/';
+  publicUrl:string ='http://localhost:8080/'; //https://heroku-quizapi.herokuapp.com/
   private UrlPost = "";
   constructor(private httpClient: HttpClient) {}
 
